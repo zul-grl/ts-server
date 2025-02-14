@@ -1,0 +1,12 @@
+import { productRouter } from "./src/router/product-router";
+import { userRouter } from "./src/router/user-router";
+var cors = require("cors");
+const bodyParser = require("body-parser");
+const express = require("express");
+const app = express();
+const port = 4000;
+app.use(bodyParser());
+app.use(cors());
+app.use("/users", userRouter);
+app.use("/products", productRouter);
+app.listen(port);
